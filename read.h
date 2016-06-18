@@ -1,0 +1,1 @@
+void readGpio(int argc, char *argv[]);

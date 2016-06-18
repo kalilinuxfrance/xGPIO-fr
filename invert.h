@@ -1,0 +1,1 @@
+void invertGpio(int argc, char *argv[]);
