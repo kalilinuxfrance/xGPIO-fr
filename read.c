@@ -52,7 +52,7 @@ void lireGpioMode(int num_gpio)
     FILE *gpio = NULL;
 
     char fichier[128] = "";
-	snprintf(fichier, sizeof fichier, "mode%d", num_gpio);// /sys/devices/virtual/misc/gpio/pin/
+	snprintf(fichier, sizeof fichier, "/sys/devices/virtual/misc/gpio/mode/gpio%d", num_gpio);// 
 
 	gpio = fopen(fichier, "r");
 
@@ -60,7 +60,7 @@ void lireGpioMode(int num_gpio)
 		{	
 		valeurLue = fgetc(gpio);
 
-		printf(" %2c", valeurLue);	
+		printf(" %2c\n", valeurLue);	
 
 		fclose(gpio), gpio = NULL;
 		}
@@ -88,7 +88,7 @@ int readGpio(int argc, char *argv[])
 
 	int valeurParametre1 = 99;
 
-	if (argc != 3)// test pour verifier le bon nombre d'arguments juste 1 pour WRITE
+	if (argc != 3)// test pour verifier le bon nombre d'arguments juste 1 pour READ
 		{
 			errorNumberOfArg();
 			return(0);
@@ -109,6 +109,7 @@ int readGpio(int argc, char *argv[])
 	if (strcmp(argv[2], "11") == 0){valeurParametre1 = 11;}
 	if (strcmp(argv[2], "12") == 0){valeurParametre1 = 12;}
 	if (strcmp(argv[2], "13") == 0){valeurParametre1 = 13;}
+	if ((strcmp(argv[2], "ALL") == 0) || (strcmp(argv[2], "all") == 0) || (strcmp(argv[2], "-a") == 0) || (strcmp(argv[2], "-A") == 0)){valeurParametre1 = 14;}
 
 		
 // gestion des erreurs: argument non conforme
@@ -126,7 +127,21 @@ int readGpio(int argc, char *argv[])
 		lireGpioPin(valeurParametre1); // lecture de la valeur pin
 		lireGpioMode(valeurParametre1); // lecture de la valeur mode
 	}
-	
+	// Option READ ALL ---------------------------------------------
+	if (valeurParametre1 == 14)
+	{
+		int i = 0;
+		printf("\n------------------");
+		printf("\n|GPIO|VALEUR|MODE|");
+		printf("\n------------------\n");
+		for(i=0; i<2; i++)
+		{
+			lireGpioPin(i); // lecture de la valeur pin
+			lireGpioMode(i); // lecture de la valeur mode
+			//printf("\n");
+		}
+	}
+	// Fin option READ ALL -----------------------------------------
 		
 return(0);
 }
