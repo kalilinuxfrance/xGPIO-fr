@@ -14,7 +14,7 @@ void lireGpioPin(int num_gpio)
     FILE *gpio = NULL;
 
     char fichier[128] = "";
-	snprintf(fichier, sizeof fichier, "gpio%d", num_gpio);// /sys/devices/virtual/misc/gpio/pin/
+	snprintf(fichier, sizeof fichier, "/sys/devices/virtual/misc/gpio/pin/gpio%d", num_gpio);// 
 
 	gpio = fopen(fichier, "r");
 
@@ -83,9 +83,7 @@ void lireGpioMode(int num_gpio)
 // -----------------------------------------------------------------------
 int readGpio(int argc, char *argv[])
 {
-	printf("test index 1: %d\n", argc);
-	printf("test Valeur de l'index 1: %s\n\n", argv[0]);
-
+	
 	int valeurParametre1 = 99;
 
 	if (argc != 3)// test pour verifier le bon nombre d'arguments juste 1 pour READ

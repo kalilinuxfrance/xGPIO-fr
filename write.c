@@ -48,8 +48,6 @@ void ecrireGpio (int num_gpio, char valeurGpio)
 // -----------------------------------------------------------------------
 int writeGpio(int argc, char *argv[])
 {
-	printf("test index 1: %d\n", argc);
-	printf("test Valeur de l'index 1: %s\n\n", argv[0]);
 
 	int valeurParametre1 = 99;
 	int valeurParametre2 = 99;

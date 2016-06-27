@@ -25,8 +25,8 @@ void errorArgValue()
 
 void errorWritingAcces()
 	{
-		printf("Erreur lors de l'acces au fichier en ecriture. verifiez que vous avez\n");
-		printf("bien fait demarrer automatiquement les modules manquant du pcduino\n");
+		printf("Erreur lors de l'acces au fichier en ecriture. verifiez que vous avez ");
+		printf("bien fait demarrer automatiquement les modules manquant du pcduino ");
 		printf("ou que les valeurs entrees sont valables\n");
 	}
 
