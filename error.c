@@ -29,3 +29,10 @@ void errorWritingAcces()
 		printf("bien fait demarrer automatiquement les modules manquant du pcduino\n");
 		printf("ou que les valeurs entrees sont valables\n");
 	}
+
+void errorReadingAcces()
+	{
+		printf("Erreur lors de l'acces au fichier en lecture. verifiez que vous avez\n");
+		printf("bien fait demarrer automatiquement les modules manquant du pcduino\n");
+		printf("ou que les valeurs entrees sont valables\n");
+	}

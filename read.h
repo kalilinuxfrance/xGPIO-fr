@@ -1,1 +1,2 @@
-void readGpio(int argc, char *argv[]);
+int readGpioPin(int argc, char *argv[]);
+int readGpioMode(int argc, char *argv[]);

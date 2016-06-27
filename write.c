@@ -43,7 +43,9 @@ void ecrireGpio (int num_gpio, char valeurGpio)
 
 
 
-
+// -----------------------------------------------------------------------
+// CHECK Before WRITE Func.
+// -----------------------------------------------------------------------
 int writeGpio(int argc, char *argv[])
 {
 	printf("test index 1: %d\n", argc);
@@ -89,6 +91,9 @@ int writeGpio(int argc, char *argv[])
 ecrireGpio(valeurParametre1, valeurParametre2);
 return(0);
 }
+// -----------------------------------------------------------------------
+// END-CHECK Before WRITE Func.
+// -----------------------------------------------------------------------
 
 
 
